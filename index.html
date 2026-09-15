@@ -16,6 +16,13 @@
     ::-webkit-scrollbar { display: none; }
     h1, h2, h3, h4 { text-wrap: balance; }
     p, li, .lede { text-wrap: pretty; }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1); }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+    #video-slider { scroll-behavior: smooth; }
+    #video-slider::-webkit-scrollbar { display: none; }
   </style>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
@@ -89,7 +96,7 @@
     }
   </script>
 </head>
-<body class="bg-[#FFFFFF] font-['Manrope'] text-on-surface antialiased selection:bg-primary-container selection:text-on-primary">
+<body class="bg-[#FFFFFF] font-['Manrope'] text-on-surface antialiased selection:bg-primary-container selection:text-on-primary pb-20 sm:pb-16">
 <!-- TOP URGENCY STRIP -->
 <header class="fixed top-0 left-0 right-0 z-50 bg-[#FFFFFF]/95 backdrop-blur-xl border-b border-surface-container-high shadow-2xl">
 <div class="bg-[#FFFBEB] px-4 py-1.5 flex items-center justify-center gap-4 text-center">
@@ -162,34 +169,13 @@
 <!-- Core Strategic Hook -->
 <div class="bg-[#FFFFFF] border-l-4 border-[#EAB308] p-4 rounded-r-lg shadow-lg">
 <p class="font-['Manrope'] text-base sm:text-lg text-on-surface leading-relaxed">
-<strong class="text-[#B45309] font-bold">One half-day, in-person, with Ayush Joshi — Dr. Ameet Parekh's Partner —</strong> using the exact system 200,000+ business owners have used to fix sales, team, money and marketing.
+<strong class="text-[#B45309] font-bold">One half-day, in-person, with Ayush Joshi — Dr. Ameet Parekh's Partner.</strong> The exact system 200,000+ business owners have used to fix sales, team, money and marketing — so you stop losing lakhs to founder-trapped operations and walk away with a written priority roadmap.
             </p>
 </div>
-<p class="font-['Manrope'] text-sm sm:text-base text-secondary leading-relaxed">
-            Stop losing lakhs every month to employee dependency, sluggish receivables, and chaotic founder-trapped operations. Walk away with a written, ranked priority roadmap to build a business that runs without you in the room.
-          </p>
-<!-- Key Logistics Grid -->
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-<div class="bg-[#FFFBEB] border border-surface-container-high p-3 rounded-lg flex flex-col gap-1">
-<span class="material-symbols-outlined text-[#B45309] text-lg">calendar_month</span>
-<span class="text-[11px] font-['Space_Grotesk'] uppercase text-secondary">Session Format</span>
-<span class="font-['Space_Grotesk'] font-bold text-xs text-on-surface">11 Oct 2026<br/>9:30 AM – 3:00 PM</span>
-</div>
-<div class="bg-[#FFFBEB] border border-surface-container-high p-3 rounded-lg flex flex-col gap-1">
-<span class="material-symbols-outlined text-[#B45309] text-lg">corporate_fare</span>
-<span class="text-[11px] font-['Space_Grotesk'] uppercase text-secondary">Venue Tier</span>
-<span class="font-['Space_Grotesk'] font-bold text-xs text-on-surface">4–5★ Hotel, Mumbai<br/>(shared on registration)</span>
-</div>
-<div class="bg-[#FFFBEB] border border-surface-container-high p-3 rounded-lg flex flex-col gap-1">
-<span class="material-symbols-outlined text-[#CA8A04] text-lg">diversity_3</span>
-<span class="text-[11px] font-['Space_Grotesk'] uppercase text-secondary">Cohort Size</span>
-<span class="font-['Space_Grotesk'] font-bold text-xs text-[#CA8A04]">Capped Batch<br/>Single Session</span>
-</div>
-<div class="bg-[#FFFBEB] border border-surface-container-high p-3 rounded-lg flex flex-col gap-1">
-<span class="material-symbols-outlined text-[#B45309] text-lg">assignment_turned_in</span>
-<span class="text-[11px] font-['Space_Grotesk'] uppercase text-secondary">Key Deliverable</span>
-<span class="font-['Space_Grotesk'] font-bold text-xs text-on-surface">Written Priority<br/>Roadmap, Same Day</span>
-</div>
+<div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-secondary font-['Space_Grotesk']">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[#B45309] text-base">calendar_month</span>11 Oct 2026 · 9:30 AM–3:00 PM</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[#B45309] text-base">corporate_fare</span>4–5★ Hotel, Mumbai</span>
+<span class="flex items-center gap-1.5 text-[#CA8A04] font-bold"><span class="material-symbols-outlined text-base">diversity_3</span>Capped Batch, Single Session</span>
 </div>
 </div>
 <!-- Right: Diagnostic Ticket & Founder Anchor Card -->
@@ -216,13 +202,6 @@
 <p class="text-xs text-secondary pt-1">
                 Single Founder Entry • In-Person, Mumbai • Inclusive of GST
               </p>
-</div>
-<!-- Core Contrast Callout -->
-<div class="bg-[#FFFBEB] p-3.5 rounded-lg border border-error/20 flex items-start gap-3">
-<span class="material-symbols-outlined text-error text-xl shrink-0 mt-0.5">warning</span>
-<p class="text-xs text-secondary leading-snug">
-<strong class="text-on-surface">The Inaction Calculus:</strong> One more month of hiring mistakes, missed follow-ups and cash stuck with late-paying clients routinely costs owners lakhs. <span class="text-[#B45309]">₹1,499 buys you clarity.</span>
-</p>
 </div>
 <!-- Major Takeaway Bullet Points -->
 <div class="flex flex-col gap-2.5 text-xs text-on-surface">
@@ -275,7 +254,7 @@
 </section>
 <!-- SECTION: CREATOR OF THE SYSTEM -->
 <section class="w-full bg-[#FFFBEB] py-16 border-t border-b border-surface-container-high" id="about-architect">
-<div class="max-w-[1200px] mx-auto px-4 sm:px-6">
+<div class="reveal max-w-[1200px] mx-auto px-4 sm:px-6">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 <div class="lg:col-span-7 flex flex-col gap-4 order-2 lg:order-1">
 <span class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-[#B45309] font-bold">Creator Of The System</span>
@@ -304,7 +283,7 @@
 
 <!-- SECTION: NATIONAL AWARDS & PRESTIGIOUS RECOGNITIONS -->
 <section class="w-full bg-[#FFFFFF] py-16" id="awards-pedigree">
-<div class="max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
+<div class="reveal max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
 <div class="text-center max-w-2xl mx-auto flex flex-col gap-2">
 <span class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-[#CA8A04] font-bold">
             Audited Distinction &amp; Peer Acclaim
@@ -378,7 +357,7 @@
 
 <!-- SECTION: MEDIA COVERAGE -->
 <section class="w-full bg-[#FFFBEB] py-16 border-t border-b border-surface-container-high" id="media-coverage">
-<div class="max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
+<div class="reveal max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
 <div class="text-center max-w-2xl mx-auto flex flex-col gap-2">
 <span class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-[#B45309] font-bold">
             National Media Coverage
@@ -403,7 +382,7 @@
 
 <!-- SECTION: ASSOCIATIONS WITH GLOBAL ICONS & THOUGHT LEADERS -->
 <section class="w-full bg-[#FFFFFF] py-16" id="associations">
-<div class="max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
+<div class="reveal max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
 <div class="text-center max-w-2xl mx-auto flex flex-col gap-2">
 <span class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-[#B45309] font-bold">
             Executive Circles &amp; Keynotes
@@ -485,7 +464,7 @@
 
 <!-- SECTION: YOUR PRESENTER -->
 <section class="w-full bg-[#FFFBEB] py-16 border-t border-b border-surface-container-high" id="presenter">
-<div class="max-w-[1200px] mx-auto px-4 sm:px-6">
+<div class="reveal max-w-[1200px] mx-auto px-4 sm:px-6">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 <div class="lg:col-span-5">
 <div class="rounded-2xl overflow-hidden border border-[#CA8A04]/30 shadow-2xl bg-[#FFFFFF]">
@@ -523,7 +502,7 @@
 
 <!-- SECTION: WHO SHOULD ATTEND -->
 <section class="w-full bg-[#FFFFFF] py-16">
-<div class="max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
+<div class="reveal max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
 <div class="text-center max-w-2xl mx-auto flex flex-col gap-2">
 <span class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-[#B45309] font-bold">
             Who Belongs In The Room
@@ -591,7 +570,7 @@
 
 <!-- SECTION: BEFORE / AFTER THE SESSION -->
 <section class="w-full bg-[#FFFBEB] py-16 border-t border-b border-surface-container-high">
-<div class="max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
+<div class="reveal max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
 <div class="text-center max-w-2xl mx-auto flex flex-col gap-2">
 <span class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-[#B45309] font-bold">The Shift</span>
 <h2 class="font-['Space_Grotesk'] text-3xl font-bold text-on-surface">Before &amp; After The Session</h2>
@@ -624,7 +603,7 @@
 
 <!-- SECTION: HALF-A-DAY TO FIX YEARS OF STRUGGLE & COST OF INACTION CONTRAST -->
 <section class="w-full bg-[#FFFFFF] py-16" id="cost-of-inaction">
-<div class="max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
+<div class="reveal max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
 <div class="text-center max-w-3xl mx-auto flex flex-col gap-2">
 <span class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-error font-bold">
             The Brutal Mathematical Reality
@@ -718,7 +697,7 @@
 
 <!-- SECTION: VIDEO TESTIMONIALS FROM MSME FOUNDERS -->
 <section class="w-full bg-[#FFFBEB] py-16 border-t border-b border-surface-container-high" id="video-testimonials">
-<div class="max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
+<div class="reveal max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
 <div class="text-center max-w-3xl mx-auto flex flex-col gap-2">
 <span class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-[#B45309] font-bold">
             Audited Founder Proof
@@ -904,7 +883,7 @@
 
 <!-- SECTION: IN-DEPTH WRITTEN CASE STUDIES -->
 <section class="w-full bg-[#FFFFFF] py-16" id="case-studies">
-<div class="max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
+<div class="reveal max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
 <div class="text-center max-w-2xl mx-auto flex flex-col gap-2">
 <span class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-[#CA8A04] font-bold">Documented Case Studies</span>
 <h2 class="font-['Space_Grotesk'] text-3xl font-bold text-on-surface">Twelve More Businesses, With The Numbers Written Out</h2>
@@ -1052,7 +1031,7 @@
 
 <!-- SECTION: THE COMPREHENSIVE 360° DIAGNOSTIC REPORT HIGHLIGHT -->
 <section class="w-full bg-[#FFFBEB] py-16 border-t border-b border-surface-container-high" id="diagnostic-report">
-<div class="max-w-[1200px] mx-auto px-4 sm:px-6">
+<div class="reveal max-w-[1200px] mx-auto px-4 sm:px-6">
 <div class="bg-gradient-to-r from-[#FFFFFF] to-[#FDE68A] border border-[#B45309]/30 rounded-2xl p-6 sm:p-10 flex flex-col lg:flex-row items-center gap-8 shadow-2xl">
 <div class="w-full lg:w-1/2 flex flex-col gap-4">
 <div class="inline-flex items-center gap-2 bg-[#EAB308]/20 text-[#B45309] px-3 py-1 rounded-full w-fit text-xs font-['Space_Grotesk'] font-bold uppercase">
@@ -1113,7 +1092,7 @@
 </section>
 <!-- SECTION: THE COMPLETE EXECUTIVE INVESTMENT STACK -->
 <section class="w-full bg-[#FFFFFF] py-16" id="investment-stack">
-<div class="max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
+<div class="reveal max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
 <div class="text-center max-w-2xl mx-auto flex flex-col gap-2">
 <span class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-[#B45309] font-bold">
             Reserve Your Seat
@@ -1188,7 +1167,7 @@
 </section>
 <!-- SECTION: COHORT QUALIFICATION MATRIX -->
 <section class="w-full bg-[#FFFBEB] py-16 border-t border-b border-surface-container-high">
-<div class="max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
+<div class="reveal max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
 <div class="text-center max-w-2xl mx-auto flex flex-col gap-2">
 <span class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-[#B45309] font-bold">
             Curated Circle Standard
@@ -1247,7 +1226,7 @@
 </section>
 <!-- SECTION: FREQUENTLY ASKED QUESTIONS -->
 <section class="w-full bg-[#FFFFFF] py-16">
-<div class="max-w-[800px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
+<div class="reveal max-w-[800px] mx-auto px-4 sm:px-6 flex flex-col gap-10">
 <div class="text-center flex flex-col gap-2">
 <span class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-[#B45309] font-bold">
             Executive Queries
@@ -1307,7 +1286,7 @@
 </section>
 <!-- SECTION: FINAL HIGH-CONVERSION CTA BANNER -->
 <section class="w-full bg-[#FFFBEB] py-16 border-t border-surface-container-high relative overflow-hidden">
-<div class="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
+<div class="reveal max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
 <div class="bg-gradient-to-b from-[#FDE68A] to-[#FFFFFF] border-2 border-[#B45309]/40 rounded-3xl p-8 sm:p-12 text-center flex flex-col items-center gap-6 shadow-2xl">
 <div class="inline-flex items-center gap-2 bg-[#FFFFFF] px-4 py-1.5 rounded-full border border-surface-container-high text-xs text-[#B45309] font-['Space_Grotesk'] font-bold uppercase">
 <span class="material-symbols-outlined text-base">event_seat</span>
@@ -1384,15 +1363,87 @@
 </div>
 </div>
 </footer>
-<div class="fixed bottom-0 left-0 right-0 z-50 bg-[#FFFBEB]/95 backdrop-blur-xl border-t border-[#B45309]/20 px-4 py-3 flex items-center justify-between gap-4 lg:hidden">
-<div class="flex flex-col">
-<span class="font-['Space_Grotesk'] text-xs font-bold text-on-surface">Business ScaleUp Blueprint</span>
-<span class="font-['Space_Grotesk'] text-[10px] text-secondary">11 OCT · 9:30AM–3PM · MUMBAI</span>
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-[#FFFBEB]/95 backdrop-blur-xl border-t border-[#B45309]/20 px-4 py-2.5 sm:py-3">
+<div class="max-w-[1200px] mx-auto flex items-center justify-between gap-3 sm:gap-6">
+<div class="flex flex-col shrink-0">
+<span class="font-['Space_Grotesk'] text-xs sm:text-sm font-bold text-on-surface">Business ScaleUp Blueprint</span>
+<span class="font-['Space_Grotesk'] text-[10px] text-secondary hidden sm:block">11 OCT 2026 · 9:30AM–3PM · MUMBAI</span>
 </div>
-<a class="inline-flex items-center gap-2 bg-[#EAB308] text-[#3A2A00] font-['Space_Grotesk'] font-bold text-xs uppercase px-4 py-2.5 rounded-lg" href="#investment-stack">
+<div class="hidden md:flex items-center gap-1.5" aria-label="Time remaining to reserve">
+<div class="flex flex-col items-center bg-[#FFFFFF] border border-surface-container-high rounded px-2.5 py-1 min-w-[42px]"><span class="font-['Space_Grotesk'] text-sm font-extrabold text-[#B45309]" id="sb-days">00</span><span class="text-[8px] text-secondary uppercase tracking-wide">Days</span></div>
+<div class="flex flex-col items-center bg-[#FFFFFF] border border-surface-container-high rounded px-2.5 py-1 min-w-[42px]"><span class="font-['Space_Grotesk'] text-sm font-extrabold text-[#B45309]" id="sb-hours">00</span><span class="text-[8px] text-secondary uppercase tracking-wide">Hrs</span></div>
+<div class="flex flex-col items-center bg-[#FFFFFF] border border-surface-container-high rounded px-2.5 py-1 min-w-[42px]"><span class="font-['Space_Grotesk'] text-sm font-extrabold text-[#B45309]" id="sb-mins">00</span><span class="text-[8px] text-secondary uppercase tracking-wide">Min</span></div>
+<div class="flex flex-col items-center bg-[#FFFFFF] border border-surface-container-high rounded px-2.5 py-1 min-w-[42px]"><span class="font-['Space_Grotesk'] text-sm font-extrabold text-[#B45309]" id="sb-secs">00</span><span class="text-[8px] text-secondary uppercase tracking-wide">Sec</span></div>
+</div>
+<a class="shrink-0 inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#B45309] hover:text-[#FFFBEB] text-[#3A2A00] font-['Space_Grotesk'] font-bold text-xs uppercase px-4 py-2.5 rounded-lg transition-colors" href="#investment-stack">
 <span>Reserve</span>
 <span class="bg-[#3A2A00]/15 px-1.5 py-0.5 rounded text-[11px]">₹1,499</span>
 </a>
 </div>
+</div>
+<script>
+(function(){
+  // Live countdown to the event
+  var target = new Date('2026-10-11T09:30:00+05:30').getTime();
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function tick(){
+    var diff = Math.max(0, target - Date.now());
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    var elD = document.getElementById('sb-days');
+    var elH = document.getElementById('sb-hours');
+    var elM = document.getElementById('sb-mins');
+    var elS = document.getElementById('sb-secs');
+    if (elD) elD.textContent = pad(d);
+    if (elH) elH.textContent = pad(h);
+    if (elM) elM.textContent = pad(m);
+    if (elS) elS.textContent = pad(s);
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+(function(){
+  // Auto-advancing video case-study slider, pauses on interaction
+  var slider = document.getElementById('video-slider');
+  if (!slider) return;
+  var timer;
+  function advance(){
+    var atEnd = slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 8;
+    if (atEnd) slider.scrollTo({ left: 0, behavior: 'smooth' });
+    else slider.scrollBy({ left: 296, behavior: 'smooth' });
+  }
+  function start(){ stop(); timer = setInterval(advance, 3200); }
+  function stop(){ if (timer) clearInterval(timer); }
+  start();
+  ['mouseenter','touchstart','pointerdown'].forEach(function(evt){
+    slider.addEventListener(evt, stop, { passive: true });
+  });
+  ['mouseleave'].forEach(function(evt){
+    slider.addEventListener(evt, start);
+  });
+  slider.addEventListener('touchend', function(){ setTimeout(start, 2500); }, { passive: true });
+})();
+
+(function(){
+  // Scroll-reveal animations
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window) || !els.length) {
+    els.forEach(function(el){ el.classList.add('is-visible'); });
+    return;
+  }
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+  els.forEach(function(el){ obs.observe(el); });
+})();
+</script>
 </body>
 </html>
